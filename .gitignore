@@ -1,0 +1,25 @@
+/vendor/
+/node_modules/
+/build/
+/coverage/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# PHPUnit / Pest
+/.phpunit.cache/
+/.phpunit.result.cache
+.phpunit.result.cache
+
+# PHP CS Fixer / Pint
+/.php-cs-fixer.cache
+/.pint.cache
+
+# Composer
+composer.lock
+
+# OS
+.DS_Store
+Thumbs.db
