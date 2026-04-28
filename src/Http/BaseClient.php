@@ -36,7 +36,7 @@ abstract class BaseClient
     protected function throwIfFailed(Response $response, string $uri): void
     {
         match (true) {
-            $response->status() === 401 => throw new AuthenticationException(),
+            $response->status() === 401 => throw new AuthenticationException,
             $response->status() === 404 => throw new NotFoundException(uri: $uri, body: $response->json()),
             $response->status() === 429 => throw new RateLimitException(
                 retryAfter: ($h = $response->header('Retry-After')) !== '' ? (int) $h : null,

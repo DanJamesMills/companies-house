@@ -25,12 +25,12 @@ class StreamClient
         protected readonly int $connectTimeout = 30,
     ) {
         $this->guzzle = new GuzzleClient([
-            'base_uri'        => rtrim($streamUrl, '/'),
-            'auth'            => [$apiKey, ''],
-            'stream'          => true,
+            'base_uri' => rtrim($streamUrl, '/'),
+            'auth' => [$apiKey, ''],
+            'stream' => true,
             'connect_timeout' => $connectTimeout,
-            'timeout'         => 0,  // no overall timeout — streams run indefinitely
-            'read_timeout'    => 90, // reconnect if no data (including heartbeats) for 90s
+            'timeout' => 0,  // no overall timeout — streams run indefinitely
+            'read_timeout' => 90, // reconnect if no data (including heartbeats) for 90s
         ]);
     }
 
@@ -62,20 +62,20 @@ class StreamClient
         $query = $timepoint !== null ? ['timepoint' => $timepoint] : [];
 
         $response = $this->guzzle->request('GET', $endpoint, [
-            'query'  => $query,
+            'query' => $query,
             'stream' => true,
         ]);
 
         $this->throwIfFailed($response->getStatusCode(), $response->getHeaderLine('Retry-After'));
 
-        $body   = $response->getBody();
+        $body = $response->getBody();
         $buffer = '';
 
         while (! $body->eof()) {
             $buffer .= $body->read(8192);
 
             while (($pos = strpos($buffer, "\n")) !== false) {
-                $line   = rtrim(substr($buffer, 0, $pos));
+                $line = rtrim(substr($buffer, 0, $pos));
                 $buffer = substr($buffer, $pos + 1);
 
                 if ($line === '') {
@@ -102,16 +102,16 @@ class StreamClient
     private function throwIfFailed(int $status, string $retryAfter): void
     {
         match (true) {
-            $status === 401 => throw new AuthenticationException(),
-            $status === 416 => throw new StreamRangeException(),
+            $status === 401 => throw new AuthenticationException,
+            $status === 416 => throw new StreamRangeException,
             $status === 429 => throw new RateLimitException(
                 retryAfter: $retryAfter !== '' ? (int) $retryAfter : null,
             ),
-            $status >= 400  => throw new CompaniesHouseException(
+            $status >= 400 => throw new CompaniesHouseException(
                 message: "Streaming API returned HTTP {$status}.",
                 statusCode: $status,
             ),
-            default         => null,
+            default => null,
         };
     }
 }

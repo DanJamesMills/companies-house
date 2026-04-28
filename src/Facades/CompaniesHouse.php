@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static DisqualifiedOfficers disqualifiedOfficers()
  * @method static OfficerAppointments officer(string $officerId)
  *
- * @see \DanJamesMills\CompaniesHouse\CompaniesHouseManager
+ * @see CompaniesHouseManager
  */
 class CompaniesHouse extends Facade
 {

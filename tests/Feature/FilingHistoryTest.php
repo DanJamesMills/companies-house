@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 test('filing history list returns items with total count', function () {
     Http::fake([
         '*/company/12345678/filing-history*' => Http::response([
-            'items'       => [
+            'items' => [
                 ['type' => 'AA', 'description' => 'accounts-with-accounts-type-small'],
             ],
             'total_count' => 1,
@@ -33,7 +33,7 @@ test('filing history get returns a specific filing', function () {
     Http::fake([
         '*/company/12345678/filing-history/txn123' => Http::response([
             'transaction_id' => 'txn123',
-            'type'           => 'AA',
+            'type' => 'AA',
         ], 200),
     ]);
 

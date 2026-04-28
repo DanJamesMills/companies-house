@@ -1,6 +1,7 @@
 <?php
 
 use DanJamesMills\CompaniesHouse\Exceptions\AuthenticationException;
+use DanJamesMills\CompaniesHouse\Exceptions\CompaniesHouseException;
 use DanJamesMills\CompaniesHouse\Exceptions\NotFoundException;
 use DanJamesMills\CompaniesHouse\Exceptions\RateLimitException;
 use DanJamesMills\CompaniesHouse\Facades\CompaniesHouse;
@@ -10,9 +11,9 @@ test('company profile returns parsed json', function () {
     Http::fake([
         '*/company/12345678' => Http::response([
             'company_number' => '12345678',
-            'company_name'   => 'ACME LIMITED',
+            'company_name' => 'ACME LIMITED',
             'company_status' => 'active',
-            'etag'           => 'abc123',
+            'etag' => 'abc123',
         ], 200),
     ]);
 
@@ -27,8 +28,8 @@ test('registered office address returns address data', function () {
     Http::fake([
         '*/company/12345678/registered-office-address' => Http::response([
             'address_line_1' => '123 Test Street',
-            'locality'       => 'London',
-            'postal_code'    => 'EC1A 1BB',
+            'locality' => 'London',
+            'postal_code' => 'EC1A 1BB',
         ], 200),
     ]);
 
@@ -68,7 +69,7 @@ test('company profile throws CompaniesHouseException for a 500 response', functi
     ]);
 
     CompaniesHouse::company('12345678')->profile();
-})->throws(\DanJamesMills\CompaniesHouse\Exceptions\CompaniesHouseException::class);
+})->throws(CompaniesHouseException::class);
 
 test('company profile throws RateLimitException and exposes the retry after value', function () {
     Http::fake([
@@ -86,4 +87,3 @@ test('company profile throws RateLimitException and exposes the retry after valu
     expect($caught)->toBeInstanceOf(RateLimitException::class)
         ->and($caught->getRetryAfter())->toBe(30);
 });
-

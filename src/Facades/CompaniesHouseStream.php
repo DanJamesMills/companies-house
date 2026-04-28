@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void companyExemptions(callable $callback, ?int $timepoint = null)
  * @method static void pscStatements(callable $callback, ?int $timepoint = null)
  *
- * @see \DanJamesMills\CompaniesHouse\CompaniesHouseStreamManager
+ * @see CompaniesHouseStreamManager
  */
 class CompaniesHouseStream extends Facade
 {

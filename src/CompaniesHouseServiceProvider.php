@@ -2,8 +2,6 @@
 
 namespace DanJamesMills\CompaniesHouse;
 
-use DanJamesMills\CompaniesHouse\CompaniesHouseManager;
-use DanJamesMills\CompaniesHouse\CompaniesHouseStreamManager;
 use DanJamesMills\CompaniesHouse\Http\Client;
 use DanJamesMills\CompaniesHouse\Http\DocumentClient;
 use DanJamesMills\CompaniesHouse\Http\StreamClient;
@@ -95,7 +93,7 @@ class CompaniesHouseServiceProvider extends ServiceProvider
         if (empty($key)) {
             throw new InvalidArgumentException(
                 'Companies House streaming API key is not set. Please add COMPANIES_HOUSE_STREAM_API_KEY to your .env file. '
-                . 'Note: streaming keys are registered separately at https://developer.company-information.service.gov.uk/manage-applications'
+                .'Note: streaming keys are registered separately at https://developer.company-information.service.gov.uk/manage-applications'
             );
         }
 

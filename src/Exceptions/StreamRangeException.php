@@ -8,7 +8,7 @@ class StreamRangeException extends CompaniesHouseException
     {
         parent::__construct(
             message: 'The requested timepoint is no longer available in the stream queue. '
-                   . 'Re-import a data snapshot and resume from its timepoint.',
+                   .'Re-import a data snapshot and resume from its timepoint.',
             statusCode: 416,
         );
     }

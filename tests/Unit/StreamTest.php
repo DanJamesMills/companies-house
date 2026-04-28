@@ -41,7 +41,7 @@ test('stream resource maps all nine endpoints', function (string $method, string
 ]);
 
 test('stream range exception has status 416 and helpful message', function () {
-    $e = new StreamRangeException();
+    $e = new StreamRangeException;
 
     expect($e->getStatusCode())->toBe(416)
         ->and($e->getMessage())->toContain('timepoint');
@@ -50,7 +50,7 @@ test('stream range exception has status 416 and helpful message', function () {
 test('stream client throws authentication exception for a 401 response', function () {
     // StreamClient uses Guzzle directly; test by asserting it constructs correctly
     // and that the exception type is right — full integration tested manually.
-    $e = new AuthenticationException();
+    $e = new AuthenticationException;
 
     expect($e->getStatusCode())->toBe(401);
 });

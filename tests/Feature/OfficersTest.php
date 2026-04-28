@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 test('officers list returns items for a company', function () {
     Http::fake([
         '*/company/12345678/officers*' => Http::response([
-            'items'        => [
+            'items' => [
                 ['name' => 'SMITH, John', 'officer_role' => 'director'],
                 ['name' => 'DOE, Jane', 'officer_role' => 'secretary'],
             ],
@@ -43,7 +43,7 @@ test('officers list sends pagination and filter params', function () {
 test('officers get returns a specific appointment', function () {
     Http::fake([
         '*/company/12345678/appointments/appt99' => Http::response([
-            'name'         => 'SMITH, John',
+            'name' => 'SMITH, John',
             'officer_role' => 'director',
         ], 200),
     ]);

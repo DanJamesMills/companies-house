@@ -1,5 +1,6 @@
 <?php
 
+use DanJamesMills\CompaniesHouse\Exceptions\CompaniesHouseException;
 use DanJamesMills\CompaniesHouse\Exceptions\NotFoundException;
 use DanJamesMills\CompaniesHouse\Facades\CompaniesHouse;
 use Illuminate\Support\Facades\Http;
@@ -11,7 +12,7 @@ test('metadata returns parsed json for a document', function () use ($metadataUr
     Http::fake([
         '*/document/abc123' => Http::response([
             'company_number' => '12345678',
-            'pages'          => 4,
+            'pages' => 4,
         ], 200),
     ]);
 
@@ -70,7 +71,7 @@ test('pdf download throws CompaniesHouseException when redirect has no Location 
     ]);
 
     CompaniesHouse::documents()->pdf($metadataUrl);
-})->throws(\DanJamesMills\CompaniesHouse\Exceptions\CompaniesHouseException::class);
+})->throws(CompaniesHouseException::class);
 
 test('pdf download throws when the redirected response fails', function () use ($metadataUrl) {
     Http::fake([
@@ -81,4 +82,4 @@ test('pdf download throws when the redirected response fails', function () use (
     ]);
 
     CompaniesHouse::documents()->pdf($metadataUrl);
-})->throws(\DanJamesMills\CompaniesHouse\Exceptions\NotFoundException::class);
+})->throws(NotFoundException::class);

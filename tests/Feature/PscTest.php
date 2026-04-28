@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 test('psc list returns items for a company', function () {
     Http::fake([
         '*/company/12345678/persons-with-significant-control*' => Http::response([
-            'items'       => [
+            'items' => [
                 ['name' => 'John Smith', 'natures_of_control' => ['ownership-of-shares-25-to-50-percent']],
             ],
             'total_results' => 1,
@@ -40,7 +40,7 @@ test('psc sub-resource methods hit the correct endpoint', function (string $meth
 test('psc list statements returns items', function () {
     Http::fake([
         '*/company/12345678/persons-with-significant-control-statements*' => Http::response([
-            'items'       => [['statement' => 'no-individual-or-entity-with-signficant-control']],
+            'items' => [['statement' => 'no-individual-or-entity-with-signficant-control']],
             'total_results' => 1,
         ], 200),
     ]);

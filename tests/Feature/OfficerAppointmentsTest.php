@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 test('officer appointments list returns total results', function () {
     Http::fake([
         '*/officers/abc123/appointments*' => Http::response([
-            'items'         => [['appointed_to' => ['company_number' => '12345678']]],
+            'items' => [['appointed_to' => ['company_number' => '12345678']]],
             'total_results' => 1,
         ], 200),
     ]);

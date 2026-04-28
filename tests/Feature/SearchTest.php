@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 test('search all returns matching items', function () {
     Http::fake([
         '*/search*' => Http::response([
-            'items'         => [['company_name' => 'ACME LIMITED']],
+            'items' => [['company_name' => 'ACME LIMITED']],
             'total_results' => 1,
         ], 200),
     ]);
@@ -19,7 +19,7 @@ test('search all returns matching items', function () {
 test('search companies returns matching companies', function () {
     Http::fake([
         '*/search/companies*' => Http::response([
-            'items'         => [['company_name' => 'ACME LIMITED', 'company_number' => '12345678']],
+            'items' => [['company_name' => 'ACME LIMITED', 'company_number' => '12345678']],
             'total_results' => 1,
         ], 200),
     ]);
@@ -41,7 +41,7 @@ test('search companies sends restrictions param', function () {
 test('search officers returns matching officers', function () {
     Http::fake([
         '*/search/officers*' => Http::response([
-            'items'         => [['name' => 'SMITH, John']],
+            'items' => [['name' => 'SMITH, John']],
             'total_results' => 1,
         ], 200),
     ]);
@@ -54,7 +54,7 @@ test('search officers returns matching officers', function () {
 test('search disqualified officers returns results', function () {
     Http::fake([
         '*/search/disqualified-officers*' => Http::response([
-            'items'         => [['name' => 'SMITH, John']],
+            'items' => [['name' => 'SMITH, John']],
             'total_results' => 1,
         ], 200),
     ]);
@@ -67,14 +67,14 @@ test('search disqualified officers returns results', function () {
 test('advanced search returns results', function () {
     Http::fake([
         '*/advanced-search/companies*' => Http::response([
-            'items'         => [['company_name' => 'ACME LIMITED']],
+            'items' => [['company_name' => 'ACME LIMITED']],
             'total_results' => 1,
         ], 200),
     ]);
 
     $result = CompaniesHouse::search()->advanced([
         'company_name_includes' => 'ACME',
-        'company_status'        => ['active'],
+        'company_status' => ['active'],
     ]);
 
     expect($result['items'])->toHaveCount(1);
@@ -83,7 +83,7 @@ test('advanced search returns results', function () {
 test('dissolved search returns results', function () {
     Http::fake([
         '*/dissolved-search/companies*' => Http::response([
-            'items'         => [['company_name' => 'OLD ACME LTD']],
+            'items' => [['company_name' => 'OLD ACME LTD']],
             'total_results' => 1,
         ], 200),
     ]);

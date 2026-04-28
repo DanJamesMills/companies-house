@@ -6,7 +6,7 @@ use DanJamesMills\CompaniesHouse\Exceptions\NotFoundException;
 use DanJamesMills\CompaniesHouse\Exceptions\RateLimitException;
 
 test('authentication exception has correct status code and mentions api key', function () {
-    $e = new AuthenticationException();
+    $e = new AuthenticationException;
 
     expect($e->getStatusCode())->toBe(401)
         ->and($e->getMessage())->toContain('API key');
@@ -34,9 +34,8 @@ test('rate limit exception returns null when no retry after header was provided'
 
 test('base exception stores status code and raw body', function () {
     $body = ['error' => 'service unavailable'];
-    $e    = new CompaniesHouseException(message: 'Service unavailable', statusCode: 503, body: $body);
+    $e = new CompaniesHouseException(message: 'Service unavailable', statusCode: 503, body: $body);
 
     expect($e->getStatusCode())->toBe(503)
         ->and($e->getBody())->toBe($body);
 });
-

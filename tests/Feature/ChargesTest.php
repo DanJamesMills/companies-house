@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 test('charges list returns items for a company', function () {
     Http::fake([
         '*/company/12345678/charges*' => Http::response([
-            'items'       => [
+            'items' => [
                 ['charge_number' => 1, 'status' => 'outstanding'],
             ],
             'total_count' => 1,
@@ -33,7 +33,7 @@ test('charges get returns a specific charge', function () {
     Http::fake([
         '*/company/12345678/charges/charge99' => Http::response([
             'charge_number' => 99,
-            'status'        => 'satisfied',
+            'status' => 'satisfied',
         ], 200),
     ]);
 

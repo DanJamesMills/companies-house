@@ -1,6 +1,5 @@
 <?php
 
-use DanJamesMills\CompaniesHouse\CompaniesHouseServiceProvider;
 use DanJamesMills\CompaniesHouse\Http\Client;
 use DanJamesMills\CompaniesHouse\Http\StreamClient;
 
