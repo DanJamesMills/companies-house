@@ -2,6 +2,7 @@
 
 namespace DanJamesMills\CompaniesHouse;
 
+use DanJamesMills\CompaniesHouse\Data\RateLimit;
 use DanJamesMills\CompaniesHouse\Http\Client;
 use DanJamesMills\CompaniesHouse\Http\DocumentClient;
 use DanJamesMills\CompaniesHouse\Resources\Company;
@@ -76,5 +77,23 @@ class CompaniesHouseManager
     public function officer(string $officerId): OfficerAppointments
     {
         return new OfficerAppointments($this->client, $officerId);
+    }
+
+    /**
+     * Rate limit information extracted from the most recent API response headers.
+     *
+     * Returns null until at least one request has been made.
+     *
+     * Example:
+     *   $profile = CompaniesHouse::company('09717426')->profile();
+     *   $limit   = CompaniesHouse::rateLimit();
+     *   // $limit->limit      — total requests allowed per window
+     *   // $limit->remaining  — requests remaining in this window
+     *   // $limit->resetAt    — Unix timestamp when the window resets
+     *   // $limit->window     — window duration (e.g. "5m")
+     */
+    public function rateLimit(): ?RateLimit
+    {
+        return $this->client->lastRateLimit() ?? $this->documentClient->lastRateLimit();
     }
 }
