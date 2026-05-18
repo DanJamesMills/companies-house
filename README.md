@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/danjamesmills/companies-house.svg?style=flat-square)](https://packagist.org/packages/danjamesmills/companies-house)
 [![License](https://img.shields.io/packagist/l/danjamesmills/companies-house.svg?style=flat-square)](LICENSE.md)
 
-A Laravel package for the [Companies House API](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference). Look up any UK company, its officers, filing history, charges, PSC data, and more — all with a clean fluent interface. Also supports the real-time Streaming API for keeping a local database in sync as changes happen.
+A Laravel package for the [Companies House API](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference). Look up any UK company, its officers, filing history, charges, PSC data, and more, all with a clean fluent interface. Also supports the real-time Streaming API for keeping a local database in sync as changes happen.
 
 ```php
 // Look up a company
@@ -22,10 +22,10 @@ CompaniesHouseStream::companies(function (array $event) {
 ```
 
 **Why use this package?**
-- The raw Companies House API uses HTTP Basic Auth with non-obvious conventions — this handles all of that for you
+- The raw Companies House API uses HTTP Basic Auth with non-obvious conventions, this package handles all of that for you
 - Typed exceptions for every error case (401, 404, 429, 416) so you can handle them cleanly
 - Streaming API support built in, with the correct Guzzle configuration for long-lived connections
-- 99% test coverage, Laravel 10/11/12 compatible
+- 99% test coverage, Laravel 10/11/12/13 compatible
 
 > **API reference:** The full response shapes for every endpoint are documented in the [Companies House API spec](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference). The [Streaming API spec](https://developer-specs.company-information.service.gov.uk/streaming-api/reference) covers the real-time feed format.
 
@@ -44,6 +44,9 @@ CompaniesHouseStream::companies(function (array $event) {
   - [Disqualified Officers](#disqualified-officers)
   - [Officer Appointments](#officer-appointments-all-roles-for-one-person)
   - [Downloading Filing Documents](#downloading-filing-documents)
+- [Per-request Configuration](#per-request-configuration)
+  - [Swapping the API key](#swapping-the-api-key)
+  - [Routing through a proxy](#routing-through-a-proxy)
 - [Streaming API](#streaming-api)
   - [How it works](#how-it-works-1)
   - [The timepoint](#the-timepoint)
@@ -152,10 +155,34 @@ $establishments = CompaniesHouse::company('09717426')->ukEstablishments();
 // List all officers (directors, secretaries, etc.)
 $officers = CompaniesHouse::company('09717426')->officers()->list();
 
-// Paginate
+// Key response fields:
+// $officers['items']           - the officer records for this page
+// $officers['total_results']   - total officers across all pages (active + resigned + inactive)
+// $officers['active_count']    - number of currently active officers
+// $officers['resigned_count']  - number of resigned officers
+// $officers['inactive_count']  - number of inactive officers
+// $officers['items_per_page']  - page size used (default 35, max 35)
+// $officers['start_index']     - zero-based offset of the first item in this page
+
+// Paginate through all officers
+$startIndex = 0;
+$itemsPerPage = 35;
+
+do {
+    $response = CompaniesHouse::company('09717426')->officers()->list(
+        itemsPerPage: $itemsPerPage,
+        startIndex: $startIndex,
+    );
+
+    foreach ($response['items'] as $officer) {
+        // process each officer...
+    }
+
+    $startIndex += $itemsPerPage;
+} while ($startIndex < $response['total_results']);
+
+// Order results
 $officers = CompaniesHouse::company('09717426')->officers()->list(
-    itemsPerPage: 25,
-    startIndex: 0,
     orderBy: 'surname', // 'appointed_on', 'resigned_on', 'surname'
 );
 
@@ -326,13 +353,51 @@ foreach ($history['items'] as $item) {
 
 ---
 
+## Per-request Configuration
+
+Both `withApiKey` and `withProxy` return a **new** manager instance. The application singleton is never modified, so other parts of your code are unaffected.
+
+### Swapping the API key
+
+Useful in multi-tenant applications where each user has their own Companies House API key registered with the Developer Hub:
+
+```php
+$profile = CompaniesHouse::withApiKey($user->ch_api_key)
+    ->company('09717426')
+    ->profile();
+
+// The default key is still used everywhere else
+$otherProfile = CompaniesHouse::company('12345678')->profile();
+```
+
+### Routing through a proxy
+
+```php
+$profile = CompaniesHouse::withProxy('http://proxy.example.com:8080')
+    ->company('09717426')
+    ->profile();
+```
+
+Both options can be chained together:
+
+```php
+$profile = CompaniesHouse::withApiKey($user->ch_api_key)
+    ->withProxy('http://proxy.example.com:8080')
+    ->company('09717426')
+    ->profile();
+```
+
+> All resource methods (`company()`, `search()`, `documents()`, `disqualifiedOfficers()`, `officer()`) on the derived instance use the overridden key and/or proxy.
+
+---
+
 ## Streaming API
 
 ### How it works
 
 Instead of you calling Companies House and asking "what's changed?", the streaming API works the other way around: **your server makes one long HTTP connection to `stream.companieshouse.gov.uk` and leaves it open**. Companies House then pushes each change down that connection as it happens, line by line, indefinitely - like downloading an infinitely long file.
 
-Your code processes each line (one JSON event per line) as it arrives. The connection stays open until the server closes it (maintenance, congestion) or your process dies. You are not polling anything — you are just reading from an open socket.
+Your code processes each line (one JSON event per line) as it arrives. The connection stays open until the server closes it (maintenance, congestion) or your process dies. You are not polling anything, you are just reading from an open socket.
 
 ```
 Your server  ──── GET /companies ────►  stream.companieshouse.gov.uk
@@ -537,7 +602,7 @@ Here is how to decide between the two approaches. Both work fine within the rate
 **Streaming API (long-running connection)**
 
 - One persistent connection, Companies House pushes changes to you within seconds
-- Unlimited throughput — you receive every change regardless of how many companies there are
+- Unlimited throughput, you receive every change regardless of how many companies there are
 - Requires a dedicated long-running process managed by Supervisor (as shown above)
 - More complex to deploy and monitor
 - Requires a separate streaming API key
@@ -559,7 +624,7 @@ The API allows **600 requests per 5-minute window** per API key. Exceeding this 
 
 **Tips for staying within limits:**
 
-- Cache responses — company profiles and officer lists rarely change minute-to-minute
+- Cache responses where possible, company profiles and officer lists rarely change minute-to-minute
 - Use the `etag` field to detect changes before fetching full data (see below)
 - Process bulk lookups via queued jobs with rate-awareness, not in a single loop
 - Contact Companies House if your application consistently needs more than 600/5min
@@ -574,10 +639,10 @@ use DanJamesMills\CompaniesHouse\Facades\CompaniesHouse;
 $profile = CompaniesHouse::company('09717426')->profile();
 
 $limit = CompaniesHouse::rateLimit();
-// $limit->limit      — total requests allowed in the window (e.g. 600)
-// $limit->remaining  — requests remaining before a 429 is returned (e.g. 597)
-// $limit->resetAt    — Unix timestamp when the window resets (e.g. 1730107751)
-// $limit->window     — window duration as a string (e.g. "5m")
+// $limit->limit      - total requests allowed in the window (e.g. 600)
+// $limit->remaining  - requests remaining before a 429 is returned (e.g. 597)
+// $limit->resetAt    - Unix timestamp when the window resets (e.g. 1730107751)
+// $limit->window     - window duration as a string (e.g. "5m")
 ```
 
 Use this to build a dynamic back-off directly into your integration pipeline:
@@ -586,7 +651,7 @@ Use this to build a dynamic back-off directly into your integration pipeline:
 $limit = CompaniesHouse::rateLimit();
 
 if ($limit && $limit->remaining < 10) {
-    // Nearly exhausted — sleep until the window resets before the next batch
+    // Nearly exhausted - sleep until the window resets before the next batch
     $wait = $limit->secondsUntilReset();
     sleep($wait > 0 ? $wait : 1);
 }
@@ -753,7 +818,7 @@ try {
 }
 ```
 
-> **Note:** Optional endpoints (`registers`, `insolvency`, `exemptions`, `charges`, `uk-establishments`) return a `NotFoundException` when a company simply has no data for that resource — this is normal behaviour, not an error.
+> **Note:** Optional endpoints (`registers`, `insolvency`, `exemptions`, `charges`, `uk-establishments`) return a `NotFoundException` when a company has no data for that resource. This is normal behaviour, not an error.
 
 ## Testing
 

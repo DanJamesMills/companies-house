@@ -14,8 +14,8 @@ use DanJamesMills\CompaniesHouse\Resources\Search;
 class CompaniesHouseManager
 {
     public function __construct(
-        protected readonly Client $client,
-        protected readonly DocumentClient $documentClient,
+        protected Client $client,
+        protected DocumentClient $documentClient,
     ) {}
 
     /**
@@ -77,6 +77,38 @@ class CompaniesHouseManager
     public function officer(string $officerId): OfficerAppointments
     {
         return new OfficerAppointments($this->client, $officerId);
+    }
+
+    /**
+     * Return a new manager instance that authenticates with a different API key.
+     * The original (singleton) instance is not modified.
+     *
+     * Useful for multi-tenant applications where each user has their own key:
+     *
+     *   CompaniesHouse::withApiKey($user->ch_api_key)->company('09717426')->profile();
+     */
+    public function withApiKey(string $apiKey): static
+    {
+        $clone = clone $this;
+        $clone->client = $this->client->withApiKey($apiKey);
+        $clone->documentClient = $this->documentClient->withApiKey($apiKey);
+
+        return $clone;
+    }
+
+    /**
+     * Return a new manager instance that routes all requests through a proxy.
+     * The original (singleton) instance is not modified.
+     *
+     *   CompaniesHouse::withProxy('http://proxy.example.com:8080')->company('09717426')->profile();
+     */
+    public function withProxy(string $proxy): static
+    {
+        $clone = clone $this;
+        $clone->client = $this->client->withProxy($proxy);
+        $clone->documentClient = $this->documentClient->withProxy($proxy);
+
+        return $clone;
     }
 
     /**
