@@ -91,12 +91,20 @@ abstract class BaseClient
     }
 
     /**
-     * Return a new instance that routes requests through an HTTP/HTTPS proxy.
+     * Return a new instance that routes requests through a proxy.
      * The original instance is not modified.
      *
-     * @param  string  $proxy  Proxy URL, e.g. "http://proxy.example.com:8080"
+     * Accepts a proxy URL string or a Guzzle-style proxy array for
+     * per-protocol control and bypass lists:
+     *
+     *   string: applies to all traffic, e.g. "socks5://proxy.example.com:1080"
+     *   array:  ['http' => '...', 'https' => '...', 'no' => ['localhost']]
+     *
+     * Supported schemes: http, https, socks4, socks5.
+     *
+     * @param  string|array<string, mixed>  $proxy
      */
-    public function withProxy(string $proxy): static
+    public function withProxy(string|array $proxy): static
     {
         $clone = clone $this;
         $clone->http = $clone->http->withOptions(['proxy' => $proxy]);

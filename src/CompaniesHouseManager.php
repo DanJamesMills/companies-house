@@ -102,7 +102,10 @@ class CompaniesHouseManager
      *
      *   CompaniesHouse::withProxy('http://proxy.example.com:8080')->company('09717426')->profile();
      */
-    public function withProxy(string $proxy): static
+    /**
+     * @param  string|array<string, mixed>  $proxy
+     */
+    public function withProxy(string|array $proxy): static
     {
         $clone = clone $this;
         $clone->client = $this->client->withProxy($proxy);

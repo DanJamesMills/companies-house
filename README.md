@@ -372,8 +372,28 @@ $otherProfile = CompaniesHouse::company('12345678')->profile();
 
 ### Routing through a proxy
 
+Pass a proxy URL string — the scheme controls the protocol (`http`, `https`, `socks4`, `socks5`):
+
 ```php
+// HTTP proxy
 $profile = CompaniesHouse::withProxy('http://proxy.example.com:8080')
+    ->company('09717426')
+    ->profile();
+
+// SOCKS5 proxy
+$profile = CompaniesHouse::withProxy('socks5://proxy.example.com:1080')
+    ->company('09717426')
+    ->profile();
+```
+
+For per-protocol control or a bypass list, pass an array:
+
+```php
+$profile = CompaniesHouse::withProxy([
+        'http'  => 'http://proxy.example.com:8080',
+        'https' => 'http://proxy.example.com:8080',
+        'no'    => ['localhost', '127.0.0.1'],
+    ])
     ->company('09717426')
     ->profile();
 ```
