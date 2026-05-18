@@ -3,21 +3,32 @@
 use DanJamesMills\CompaniesHouse\Facades\CompaniesHouse;
 use Illuminate\Support\Facades\Http;
 
-test('officers list returns items for a company', function () {
+test('officers list returns items and pagination metadata for a company', function () {
     Http::fake([
         '*/company/12345678/officers*' => Http::response([
             'items' => [
                 ['name' => 'SMITH, John', 'officer_role' => 'director'],
                 ['name' => 'DOE, Jane', 'officer_role' => 'secretary'],
             ],
-            'total_results' => 2,
+            'total_results' => 5,
+            'active_count' => 2,
+            'resigned_count' => 3,
+            'inactive_count' => 0,
+            'items_per_page' => 35,
+            'start_index' => 0,
         ], 200),
     ]);
 
     $result = CompaniesHouse::company('12345678')->officers()->list();
 
     expect($result['items'])->toHaveCount(2)
-        ->and($result['items'][0]['officer_role'])->toBe('director');
+        ->and($result['items'][0]['officer_role'])->toBe('director')
+        ->and($result['total_results'])->toBe(5)
+        ->and($result['active_count'])->toBe(2)
+        ->and($result['resigned_count'])->toBe(3)
+        ->and($result['inactive_count'])->toBe(0)
+        ->and($result['items_per_page'])->toBe(35)
+        ->and($result['start_index'])->toBe(0);
 });
 
 test('officers list sends pagination and filter params', function () {
