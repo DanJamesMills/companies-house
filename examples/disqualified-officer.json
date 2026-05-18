@@ -1,0 +1,55 @@
+{
+  "date_of_birth": "1975-08-14",
+  "person_number": "186932330001",
+  "etag": "b3f7ff96aba5f2c1d60f583e0f1de17ed1e73c00",
+  "kind": "natural-disqualification",
+  "forename": "Bakhtiar",
+  "nationality": "Pakistani",
+  "surname": "ABBASI",
+  "title": "Mr",
+  "links": {
+    "self": "/disqualified-officers/natural/X-_BQLfCagqHlpMPduoRl7YtkSY"
+  },
+  "disqualifications": [
+    {
+      "case_identifier": "T20220039",
+      "address": {
+        "address_line_1": "12 Longleat Way",
+        "address_line_2": "Feltham",
+        "country": "United Kingdom",
+        "locality": "London",
+        "postal_code": "TW14 8JW"
+      },
+      "company_names": ["NEW GLOBAL INVESTMENTS UK LIMITED"],
+      "court_name": "Southwark Crown Court - London",
+      "disqualification_type": "court-order",
+      "disqualified_from": "2023-06-08",
+      "disqualified_until": "2038-06-07",
+      "heard_on": "2023-05-18",
+      "reason": {
+        "act": "company-directors-disqualification-act-1986",
+        "section": "2",
+        "description_identifier": "conviction-of-indictable-offence"
+      }
+    },
+    {
+      "case_identifier": "INV5867977",
+      "address": {
+        "address_line_1": "Longleat Way",
+        "country": "United Kingdom",
+        "locality": "Feltham",
+        "postal_code": "TW14 8JW"
+      },
+      "company_names": ["NEW GLOBAL INVESTMENTS UK LTD"],
+      "disqualification_type": "undertaking",
+      "disqualified_from": "2020-08-13",
+      "disqualified_until": "2032-08-12",
+      "undertaken_on": "2020-07-23",
+      "reason": {
+        "act": "company-directors-disqualification-act-1986",
+        "section": "7",
+        "description_identifier": "order-or-undertaking-and-reporting-provisions"
+      }
+    }
+  ]
+}

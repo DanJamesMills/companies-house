@@ -1,0 +1,97 @@
+{
+  "items_per_page": 25,
+  "items": [
+    {
+      "etag": "b2b91e1e1363c5f22da71dbf0991d9d4fbab3a97",
+      "notified_on": "2023-09-12",
+      "name": "Monzo Bank Holding Group Limited",
+      "links": {
+        "self": "/company/09446231/persons-with-significant-control/corporate-entity/PJAFq4kWrjdxPUXUAuiTSzmCKiw"
+      },
+      "identification": {
+        "legal_form": "Private Limited Company",
+        "legal_authority": "England And Wales",
+        "country_registered": "England And Wales",
+        "place_registered": "Companies House Register",
+        "registration_number": "14785367"
+      },
+      "ceased": false,
+      "kind": "corporate-entity-person-with-significant-control",
+      "address": {
+        "address_line_1": "5,Appold Street",
+        "country": "United Kingdom",
+        "locality": "London",
+        "postal_code": "EC2A 2AG",
+        "premises": "Broadwalk House"
+      },
+      "natures_of_control": [
+        "ownership-of-shares-75-to-100-percent",
+        "voting-rights-75-to-100-percent",
+        "right-to-appoint-and-remove-directors"
+      ]
+    },
+    {
+      "etag": "f3eb54617655fb63dcb40e6afc6811a1f4218af4",
+      "notified_on": "2016-04-06",
+      "ceased_on": "2021-02-11",
+      "name": "Passion Capital Fs (Gp) Llp",
+      "links": {
+        "self": "/company/09446231/persons-with-significant-control/corporate-entity/kcP4wX_yReUROD6fNwxY575SUhw"
+      },
+      "identification": {
+        "legal_form": "Limited Liability Partnership",
+        "legal_authority": "Limited Liability Partnership Act 2000",
+        "country_registered": "England And Wales",
+        "place_registered": "Companies House",
+        "registration_number": "Oc399026"
+      },
+      "ceased": true,
+      "kind": "corporate-entity-person-with-significant-control",
+      "address": {
+        "address_line_1": "Clerkenwell Road",
+        "country": "United Kingdom",
+        "locality": "London",
+        "postal_code": "EC1R 5BL",
+        "premises": "Third Floor, 65"
+      },
+      "natures_of_control": ["voting-rights-25-to-50-percent"]
+    },
+    {
+      "etag": "117c314e8bc80ffe009726f53653d50897e5c964",
+      "notified_on": "2016-04-06",
+      "ceased_on": "2016-04-06",
+      "name": "Passion Capital Fs Lp",
+      "links": {
+        "self": "/company/09446231/persons-with-significant-control/corporate-entity/M_7J-1j54aLjUzClPxhE_-tzPFA"
+      },
+      "identification": {
+        "legal_form": "Limited Partnership",
+        "legal_authority": "Limited Partnerships Act 1907",
+        "country_registered": "England And Wales",
+        "place_registered": "Registrar Of Companies For England And Wales",
+        "registration_number": "Lp16583"
+      },
+      "ceased": true,
+      "kind": "corporate-entity-person-with-significant-control",
+      "address": {
+        "address_line_1": "White Bear Yard, 2nd Floor",
+        "address_line_2": "144a Clerkenwell Road",
+        "country": "United Kingdom",
+        "locality": "London",
+        "postal_code": "EC1R 5DF",
+        "premises": "White Bear Yard, 2nd Floor"
+      },
+      "natures_of_control": [
+        "ownership-of-shares-25-to-50-percent",
+        "voting-rights-25-to-50-percent"
+      ]
+    }
+  ],
+  "start_index": 0,
+  "total_results": 3,
+  "active_count": 1,
+  "ceased_count": 2,
+  "links": {
+    "self": "/company/09446231/persons-with-significant-control"
+  }
+}

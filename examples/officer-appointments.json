@@ -1,0 +1,42 @@
+{
+  "active_count": 1,
+  "etag": "bcf4e2c53642b0fc2565b9ed0d1a0e248e2363c7",
+  "inactive_count": 0,
+  "is_corporate_officer": false,
+  "items": [
+    {
+      "address": {
+        "address_line_1": "5 Appold Street",
+        "country": "England",
+        "locality": "London",
+        "postal_code": "EC2A 2AG",
+        "premises": "Broadwalk House"
+      },
+      "appointed_on": "2023-09-12",
+      "appointed_to": {
+        "company_name": "MONZO BANK LIMITED",
+        "company_number": "09446231",
+        "company_status": "active"
+      },
+      "name": "Paul MCCULLAGH",
+      "is_pre_1992_appointment": false,
+      "links": {
+        "company": "/company/09446231"
+      },
+      "name_elements": {
+        "forename": "Paul",
+        "surname": "MCCULLAGH"
+      },
+      "officer_role": "secretary"
+    }
+  ],
+  "items_per_page": 35,
+  "kind": "personal-appointment",
+  "links": {
+    "self": "/officers/YJdXlRoAKrpXU_r23bhZcgQHcC0/appointments"
+  },
+  "name": "Paul MCCULLAGH",
+  "resigned_count": 0,
+  "start_index": 0,
+  "total_results": 1
+}

@@ -64,6 +64,7 @@ CompaniesHouseStream::companies(function (array $event) {
 - [Storing to Database](#storing-to-database)
 - [Error Handling](#error-handling)
 - [Testing](#testing)
+- [Example Responses](#example-responses)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -873,6 +874,24 @@ composer format
 ```
 
 The CI pipeline runs both checks automatically on every push and pull request.
+
+---
+
+## Example Responses
+
+The [`examples/`](examples/) folder contains real API response dumps to help you understand the data shape and plan a database schema.
+
+| File | Endpoint |
+|------|----------|
+| [company-profile.json](examples/company-profile.json) | `CompaniesHouse::company($number)->profile()` |
+| [officers.json](examples/officers.json) | `->officers()->list()` |
+| [charges.json](examples/charges.json) | `->charges()->list()` |
+| [filing-history.json](examples/filing-history.json) | `->filingHistory()->list()` |
+| [persons-with-significant-control.json](examples/persons-with-significant-control.json) | `->personsWithSignificantControl()->list()` |
+| [disqualified-officer.json](examples/disqualified-officer.json) | `CompaniesHouse::disqualifiedOfficers()->natural($id)` |
+| [officer-appointments.json](examples/officer-appointments.json) | `CompaniesHouse::officer($id)->list()` |
+| [search-companies.json](examples/search-companies.json) | `CompaniesHouse::search()->companies($query)` |
+| [document-metadata.json](examples/document-metadata.json) | `CompaniesHouse::documents()->metadata($url)` |
 
 ---
 

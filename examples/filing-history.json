@@ -1,0 +1,541 @@
+{
+  "filing_history_status": "filing-history-available",
+  "items": [
+    {
+      "transaction_id": "MzUwNDc2MTI2NmFkaXF6a2N4",
+      "barcode": "XEVPQCNM",
+      "type": "AP01",
+      "date": "2026-02-13",
+      "category": "officers",
+      "subcategory": "appointments",
+      "description": "appoint-person-director-company-with-name-date",
+      "description_values": {
+        "officer_name": "Diana Louise Patricia Layfield",
+        "appointment_date": "2026-02-01"
+      },
+      "pages": 2,
+      "action_date": "2026-02-01",
+      "links": {
+        "self": "/company/09446231/filing-history/MzUwNDc2MTI2NmFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/A7K3VhenC2nTIdqcUL1kxAqgxQI6-_nRh_ydVdzm8Kc"
+      }
+    },
+    {
+      "transaction_id": "MzUwNDUwNzYyMWFkaXF6a2N4",
+      "barcode": "XEVPFJH4",
+      "type": "TM01",
+      "date": "2026-02-11",
+      "category": "officers",
+      "subcategory": "termination",
+      "description": "termination-director-company-with-name-termination-date",
+      "description_values": {
+        "officer_name": "Anil Sai Tummalapalli",
+        "termination_date": "2026-02-01"
+      },
+      "pages": 1,
+      "action_date": "2026-02-01",
+      "links": {
+        "self": "/company/09446231/filing-history/MzUwNDUwNzYyMWFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/l9BHxYV3hwx3RX--3TP1ryL16y5ZUkrSjjmuTTvd1Y0"
+      }
+    },
+    {
+      "transaction_id": "MzQ4ODE3MjA0NGFkaXF6a2N4",
+      "barcode": "XEF4RJXK",
+      "type": "CS01",
+      "date": "2025-11-11",
+      "category": "confirmation-statement",
+      "description": "confirmation-statement-with-updates",
+      "description_values": {
+        "made_up_date": "2025-11-11"
+      },
+      "pages": 5,
+      "action_date": "2025-11-11",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ4ODE3MjA0NGFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/nQakMA6_0nFvwdCdmK3PAAuF7MGDGXDShJI3rOg7aQU"
+      }
+    },
+    {
+      "transaction_id": "MzQ4NTI0Njg4MWFkaXF6a2N4",
+      "barcode": "XEDBBDHS",
+      "type": "AP01",
+      "date": "2025-10-16",
+      "category": "officers",
+      "subcategory": "appointments",
+      "description": "appoint-person-director-company-with-name-date",
+      "description_values": {
+        "officer_name": "Karen Alexandra Smith Peacock",
+        "appointment_date": "2025-10-13"
+      },
+      "pages": 2,
+      "action_date": "2025-10-13",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ4NTI0Njg4MWFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/GHoW_zpvhcaCBx4PFJAZLt7nkhYTV8mDnF1qLqwNfkk"
+      }
+    },
+    {
+      "transaction_id": "MzQ4NTI0Njg4M2FkaXF6a2N4",
+      "barcode": "XEDBBDI0",
+      "type": "AP01",
+      "date": "2025-10-16",
+      "category": "officers",
+      "subcategory": "appointments",
+      "description": "appoint-person-director-company-with-name-date",
+      "description_values": {
+        "officer_name": "Mr Spencer George Lake",
+        "appointment_date": "2025-10-13"
+      },
+      "pages": 2,
+      "action_date": "2025-10-13",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ4NTI0Njg4M2FkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/aPdakzDekzne2amtlT2Zuqt-dexXp01teD6zmt4pdQQ"
+      }
+    },
+    {
+      "transaction_id": "MzQ3OTcyMDc0MmFkaXF6a2N4",
+      "barcode": "XEAAHWG8",
+      "type": "RP04AP01",
+      "date": "2025-09-04",
+      "category": "officers",
+      "subcategory": "document-replacement",
+      "description": "second-filing-of-director-appointment-with-name",
+      "description_values": {
+        "officer_name": "Jambu Palaniappan"
+      },
+      "pages": 3,
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ3OTcyMDc0MmFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/LGrbynLyiWSnPzqKt_9y8IYbVAzbb-I6t-F2aaWFXzo"
+      }
+    },
+    {
+      "transaction_id": "MzQ3OTUzOTY4MmFkaXF6a2N4",
+      "barcode": "XEA7R7U9",
+      "type": "AP01",
+      "date": "2025-09-02",
+      "category": "officers",
+      "annotations": [
+        {
+          "annotation": "Clarification A second filed AP01 was registered on 04/09/2025",
+          "date": "2025-09-04",
+          "description": "annotation",
+          "category": "annotation",
+          "type": "ANNOTATION",
+          "description_values": {
+            "description": "Clarification a second filed AP01 was registered on 04/09/2025"
+          }
+        }
+      ],
+      "subcategory": "appointments",
+      "description": "appoint-person-director-company-with-name-date",
+      "description_values": {
+        "officer_name": "Jambu Palanianppan",
+        "appointment_date": "2025-09-01"
+      },
+      "pages": 3,
+      "action_date": "2025-09-01",
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ3OTUzOTY4MmFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/ZMLxL7T-tWqm0PZEn3gnDWnJFxFiaGhgDIapO_JuxUo"
+      }
+    },
+    {
+      "transaction_id": "MzQ3OTUxNTIyOGFkaXF6a2N4",
+      "barcode": "XEA7OC5E",
+      "type": "SH01",
+      "date": "2025-09-02",
+      "category": "capital",
+      "description": "capital-allotment-shares",
+      "description_values": {
+        "date": "2025-08-15",
+        "capital": [
+          {
+            "currency": "GBP",
+            "figure": "41,807.801"
+          }
+        ]
+      },
+      "pages": 3,
+      "action_date": "2025-08-15",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ3OTUxNTIyOGFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/rVuNF2cBXgO3HNJue-YhXUHHp1vW9VDzZTM9Thp1BP4"
+      }
+    },
+    {
+      "transaction_id": "MzQ3OTM1MDUyMmFkaXF6a2N4",
+      "barcode": "AE9IDQ3N",
+      "type": "AA",
+      "date": "2025-09-01",
+      "category": "accounts",
+      "description": "accounts-with-accounts-type-full",
+      "description_values": {
+        "made_up_date": "2025-03-31"
+      },
+      "pages": 212,
+      "action_date": "2025-03-31",
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ3OTM1MDUyMmFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/E4CnqVwLLRa3vT1SOgoEeeJVPwh3WfcBJX--qem7ZMY"
+      }
+    },
+    {
+      "transaction_id": "MzQ3MzIwOTAyN2FkaXF6a2N4",
+      "barcode": "XE6GWZLK",
+      "type": "AP01",
+      "date": "2025-07-10",
+      "category": "officers",
+      "subcategory": "appointments",
+      "description": "appoint-person-director-company-with-name-date",
+      "description_values": {
+        "officer_name": "Delfin Rueda Arroyo",
+        "appointment_date": "2025-06-27"
+      },
+      "pages": 2,
+      "action_date": "2025-06-27",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ3MzIwOTAyN2FkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/1lM17hWNjB6P1KnWRy5E5IUilq9gqcG9WVMZTQH8L74"
+      }
+    },
+    {
+      "transaction_id": "MzQ2MzY0OTA1NmFkaXF6a2N4",
+      "barcode": "AE05NNMT",
+      "type": "RP04SH01",
+      "date": "2025-04-23",
+      "category": "capital",
+      "description": "second-filing-capital-allotment-shares",
+      "description_values": {
+        "date": "2025-03-12",
+        "capital": [
+          {
+            "currency": "GBP",
+            "figure": "26,807.801"
+          }
+        ]
+      },
+      "pages": 6,
+      "action_date": "2025-03-12",
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ2MzY0OTA1NmFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/oCHk33YoEgDFt1iujD0ryMgpB8VRO7UJyN0l-QHZb7c"
+      }
+    },
+    {
+      "transaction_id": "MzQ1OTQ1MjcwMmFkaXF6a2N4",
+      "barcode": "XDYP9NMX",
+      "type": "SH01",
+      "date": "2025-03-21",
+      "category": "capital",
+      "annotations": [
+        {
+          "annotation": "Clarification A second filed SH01 was registered on 23/04/25.",
+          "date": "2025-04-23",
+          "description": "annotation",
+          "category": "annotation",
+          "type": "ANNOTATION",
+          "description_values": {
+            "description": "Clarification a second filed SH01 was registered on 23/04/25."
+          }
+        }
+      ],
+      "description": "capital-allotment-shares",
+      "description_values": {
+        "date": "2025-03-12",
+        "capital": [
+          {
+            "currency": "GBP",
+            "figure": "26,753.982"
+          }
+        ]
+      },
+      "pages": 4,
+      "action_date": "2025-03-12",
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ1OTQ1MjcwMmFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/QXYpcLytSJ2-knJFhufIgd3IQbNM4dkHd7N67enpld4"
+      }
+    },
+    {
+      "transaction_id": "MzQ1OTQ1MjcwMGFkaXF6a2N4",
+      "barcode": "XDYP9NHL",
+      "type": "SH01",
+      "date": "2025-03-20",
+      "category": "capital",
+      "description": "capital-allotment-shares",
+      "description_values": {
+        "date": "2025-03-12",
+        "capital": [
+          {
+            "currency": "GBP",
+            "figure": "11,288.233"
+          }
+        ]
+      },
+      "pages": 3,
+      "action_date": "2025-03-12",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ1OTQ1MjcwMGFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/a7wsbalvuQ9hf0xREijNML0Jc2VVBxtP7KxaH4kkPIs"
+      }
+    },
+    {
+      "transaction_id": "MzQ1NjgzMDg1OWFkaXF6a2N4",
+      "barcode": "ADX79MHT",
+      "type": "SH01",
+      "date": "2025-03-03",
+      "category": "capital",
+      "description": "capital-allotment-shares",
+      "description_values": {
+        "date": "2025-02-04",
+        "capital": [
+          {
+            "currency": "GBP",
+            "figure": "11,234.414"
+          }
+        ]
+      },
+      "pages": 4,
+      "action_date": "2025-02-04",
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ1NjgzMDg1OWFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/-r0xRqfYc7v_U8TV8YQXvsJXEvSsXBLpfIJpvxiYOj8"
+      }
+    },
+    {
+      "transaction_id": "QURXUzJGWlRhZGlxemtjeA",
+      "barcode": "ADWS2FZT",
+      "type": "RESOLUTIONS",
+      "date": "2025-02-24",
+      "category": "resolution",
+      "resolutions": [
+        {
+          "category": "capital",
+          "description": "resolution",
+          "type": "RES13",
+          "subcategory": "resolution",
+          "description_values": {
+            "description": "Re: authority to fix remuneration 06/02/2025"
+          }
+        }
+      ],
+      "description": "resolution",
+      "description_values": {
+        "description": "Resolutions"
+      },
+      "pages": 1,
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/QURXUzJGWlRhZGlxemtjeA",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/YW8r5n8czi6BPHs_SDhXkPf_LBzEjblNkBEh96LdTnQ"
+      }
+    },
+    {
+      "transaction_id": "MzQ1NDc1NDQzOGFkaXF6a2N4",
+      "barcode": "XDW7M3KO",
+      "type": "CH01",
+      "date": "2025-02-12",
+      "category": "officers",
+      "subcategory": "change",
+      "description": "change-person-director-company-with-change-date",
+      "description_values": {
+        "change_date": "2024-06-01",
+        "officer_name": "Ms Eileen Burbidge"
+      },
+      "pages": 2,
+      "action_date": "2024-06-01",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ1NDc1NDQzOGFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/yFabR6A6AZraRFd2uTsteugNmgrmQVDYFMthfrC7fz0"
+      }
+    },
+    {
+      "transaction_id": "MzQ0NTcwNzg1OWFkaXF6a2N4",
+      "barcode": "XDH4HIVK",
+      "type": "AP01",
+      "date": "2024-12-02",
+      "category": "officers",
+      "subcategory": "appointments",
+      "description": "appoint-person-director-company-with-name-date",
+      "description_values": {
+        "officer_name": "Mr Mark Newbery",
+        "appointment_date": "2024-11-25"
+      },
+      "pages": 2,
+      "action_date": "2024-11-25",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ0NTcwNzg1OWFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/RLjfTHrUeITMo0lrdUewqZg3WvwzUQ9KsNyAWLQMFkI"
+      }
+    },
+    {
+      "transaction_id": "MzQ0NDc2MDg4MGFkaXF6a2N4",
+      "barcode": "XDGLFWSJ",
+      "type": "CS01",
+      "date": "2024-11-25",
+      "category": "confirmation-statement",
+      "description": "confirmation-statement-with-updates",
+      "description_values": {
+        "made_up_date": "2024-11-11"
+      },
+      "pages": 5,
+      "action_date": "2024-11-11",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ0NDc2MDg4MGFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/M247nrXOHFYm9JSWybvSaIUEUsrE4wMaYmPRkQiaquw"
+      }
+    },
+    {
+      "transaction_id": "MzQ0MTkxOTYyN2FkaXF6a2N4",
+      "barcode": "XDF694Q2",
+      "type": "TM01",
+      "date": "2024-11-04",
+      "category": "officers",
+      "subcategory": "termination",
+      "description": "termination-director-company-with-name-termination-date",
+      "description_values": {
+        "officer_name": "James Davies",
+        "termination_date": "2024-10-29"
+      },
+      "pages": 1,
+      "action_date": "2024-10-29",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ0MTkxOTYyN2FkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/-O2vfbIe3YVEJYkS9hOl0LjY4kRBB_yvGAWtuPV9TLg"
+      }
+    },
+    {
+      "transaction_id": "MzQ0MTQ1MTgyNWFkaXF6a2N4",
+      "barcode": "XDESQV3C",
+      "type": "CH01",
+      "date": "2024-10-30",
+      "category": "officers",
+      "subcategory": "change",
+      "description": "change-person-director-company-with-change-date",
+      "description_values": {
+        "change_date": "2023-09-17",
+        "officer_name": "Mr Anil Sai Tummalapalli"
+      },
+      "pages": 2,
+      "action_date": "2023-09-17",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQ0MTQ1MTgyNWFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/X3za2g45fcMMb_BNDHeruSHKBDf3g7dkNlX9ZuHPet0"
+      }
+    },
+    {
+      "transaction_id": "MzQzOTA1NjI2OGFkaXF6a2N4",
+      "barcode": "ADD13KFE",
+      "type": "AA",
+      "date": "2024-10-15",
+      "category": "accounts",
+      "description": "accounts-with-accounts-type-full",
+      "description_values": {
+        "made_up_date": "2024-03-31"
+      },
+      "pages": 196,
+      "action_date": "2024-03-31",
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/MzQzOTA1NjI2OGFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/sP-4HTWA_e6PkX8FRC2oXCdgjn_fRzo89cmrw4FtMso"
+      }
+    },
+    {
+      "transaction_id": "MzQyMjE0MzMyM2FkaXF6a2N4",
+      "barcode": "XD39D6UB",
+      "type": "TM01",
+      "date": "2024-05-16",
+      "category": "officers",
+      "subcategory": "termination",
+      "description": "termination-director-company-with-name-termination-date",
+      "description_values": {
+        "officer_name": "Matthew Samuel Bromberg",
+        "termination_date": "2024-05-15"
+      },
+      "pages": 1,
+      "action_date": "2024-05-15",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQyMjE0MzMyM2FkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/a0gK7qjyKONeetzZ2HKXP7hKviS7adaSqJQsKcAy_BY"
+      }
+    },
+    {
+      "transaction_id": "MzQxODcwMTY1NmFkaXF6a2N4",
+      "barcode": "XD18IH0Z",
+      "type": "SH01",
+      "date": "2024-04-17",
+      "category": "capital",
+      "description": "capital-allotment-shares",
+      "description_values": {
+        "date": "2024-03-28",
+        "capital": [
+          {
+            "currency": "GBP",
+            "figure": "10,140.717"
+          }
+        ]
+      },
+      "pages": 3,
+      "action_date": "2024-03-28",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQxODcwMTY1NmFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/bHbHfxRTKs9Rd9U5mVQGogLwdBBiwto8RHkJwbP3xuY"
+      }
+    },
+    {
+      "transaction_id": "WUQwQzkwMDhhZGlxemtjeA",
+      "type": "RESOLUTIONS",
+      "date": "2024-04-08",
+      "category": "resolution",
+      "resolutions": [
+        {
+          "category": "capital",
+          "description": "resolution-securities",
+          "type": "RES10",
+          "subcategory": "resolution"
+        }
+      ],
+      "description": "resolution",
+      "description_values": {
+        "description": "Resolutions"
+      },
+      "pages": 1,
+      "paper_filed": true,
+      "links": {
+        "self": "/company/09446231/filing-history/WUQwQzkwMDhhZGlxemtjeA",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/y1eAnGzaoRdsICsVPk9Dsof5kdOyKVbTbVrJbDI-Kag"
+      }
+    },
+    {
+      "transaction_id": "MzQxNjg5MTE2MGFkaXF6a2N4",
+      "barcode": "XD06QBW9",
+      "type": "AP01",
+      "date": "2024-04-02",
+      "category": "officers",
+      "subcategory": "appointments",
+      "description": "appoint-person-director-company-with-name-date",
+      "description_values": {
+        "officer_name": "Ms Jane Fields Wicker-Miurin",
+        "appointment_date": "2024-04-01"
+      },
+      "pages": 2,
+      "action_date": "2024-04-01",
+      "links": {
+        "self": "/company/09446231/filing-history/MzQxNjg5MTE2MGFkaXF6a2N4",
+        "document_metadata": "https://document-api.company-information.service.gov.uk/document/ymsUXk58cnBe4pY9tPfECV_RBrhBAZ4n1VawJ_Zw-ys"
+      }
+    }
+  ],
+  "items_per_page": 25,
+  "start_index": 0,
+  "total_count": 205
+}
