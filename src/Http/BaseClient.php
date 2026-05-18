@@ -2,6 +2,7 @@
 
 namespace DanJamesMills\CompaniesHouse\Http;
 
+use DanJamesMills\CompaniesHouse\Data\RateLimit;
 use DanJamesMills\CompaniesHouse\Exceptions\AuthenticationException;
 use DanJamesMills\CompaniesHouse\Exceptions\CompaniesHouseException;
 use DanJamesMills\CompaniesHouse\Exceptions\NotFoundException;
@@ -13,6 +14,8 @@ use Illuminate\Http\Client\Response;
 abstract class BaseClient
 {
     protected PendingRequest $http;
+
+    private ?RateLimit $lastRateLimit = null;
 
     public function __construct(
         protected readonly string $apiKey,
@@ -28,6 +31,15 @@ abstract class BaseClient
     }
 
     /**
+     * The rate limit information extracted from the most recent response headers.
+     * Returns null if no response has been received yet or headers were absent.
+     */
+    public function lastRateLimit(): ?RateLimit
+    {
+        return $this->lastRateLimit;
+    }
+
+    /**
      * @throws AuthenticationException
      * @throws NotFoundException
      * @throws RateLimitException
@@ -35,6 +47,8 @@ abstract class BaseClient
      */
     protected function throwIfFailed(Response $response, string $uri): void
     {
+        $this->captureRateLimitHeaders($response);
+
         match (true) {
             $response->status() === 401 => throw new AuthenticationException,
             $response->status() === 404 => throw new NotFoundException(uri: $uri, body: $response->json()),
@@ -48,5 +62,19 @@ abstract class BaseClient
             ),
             default => null,
         };
+    }
+
+    private function captureRateLimitHeaders(Response $response): void
+    {
+        $rateLimit = RateLimit::fromHeaders(
+            limit: $response->header('X-Ratelimit-Limit'),
+            remaining: $response->header('X-Ratelimit-Remain'),
+            resetAt: $response->header('X-Ratelimit-Reset'),
+            window: $response->header('X-Ratelimit-Window'),
+        );
+
+        if ($rateLimit !== null) {
+            $this->lastRateLimit = $rateLimit;
+        }
     }
 }

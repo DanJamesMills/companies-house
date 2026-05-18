@@ -3,6 +3,7 @@
 namespace DanJamesMills\CompaniesHouse\Facades;
 
 use DanJamesMills\CompaniesHouse\CompaniesHouseManager;
+use DanJamesMills\CompaniesHouse\Data\RateLimit;
 use DanJamesMills\CompaniesHouse\Resources\Company;
 use DanJamesMills\CompaniesHouse\Resources\DisqualifiedOfficers;
 use DanJamesMills\CompaniesHouse\Resources\Documents;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static Documents documents()
  * @method static DisqualifiedOfficers disqualifiedOfficers()
  * @method static OfficerAppointments officer(string $officerId)
+ * @method static RateLimit|null rateLimit()
  *
  * @see CompaniesHouseManager
  */

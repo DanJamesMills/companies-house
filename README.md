@@ -55,6 +55,7 @@ CompaniesHouseStream::companies(function (array $event) {
   - [How Laravel keeps the connection alive](#how-laravel-keeps-the-connection-alive)
 - [Streaming vs Polling](#streaming-vs-polling)
 - [Rate Limiting](#rate-limiting)
+  - [Handling Limits Programmatically](#handling-limits-programmatically)
 - [ETags](#etags)
 - [Caching with Laravel Cache](#caching-with-laravel-cache)
 - [Storing to Database](#storing-to-database)
@@ -562,6 +563,43 @@ The API allows **600 requests per 5-minute window** per API key. Exceeding this 
 - Use the `etag` field to detect changes before fetching full data (see below)
 - Process bulk lookups via queued jobs with rate-awareness, not in a single loop
 - Contact Companies House if your application consistently needs more than 600/5min
+
+### Handling Limits Programmatically
+
+Every response from Companies House includes rate limit headers. After any call you can read them via `CompaniesHouse::rateLimit()`:
+
+```php
+use DanJamesMills\CompaniesHouse\Facades\CompaniesHouse;
+
+$profile = CompaniesHouse::company('09717426')->profile();
+
+$limit = CompaniesHouse::rateLimit();
+// $limit->limit      — total requests allowed in the window (e.g. 600)
+// $limit->remaining  — requests remaining before a 429 is returned (e.g. 597)
+// $limit->resetAt    — Unix timestamp when the window resets (e.g. 1730107751)
+// $limit->window     — window duration as a string (e.g. "5m")
+```
+
+Use this to build a dynamic back-off directly into your integration pipeline:
+
+```php
+$limit = CompaniesHouse::rateLimit();
+
+if ($limit && $limit->remaining < 10) {
+    // Nearly exhausted — sleep until the window resets before the next batch
+    $wait = $limit->secondsUntilReset();
+    sleep($wait > 0 ? $wait : 1);
+}
+```
+
+Helper methods on the `RateLimit` object:
+
+```php
+$limit->secondsUntilReset(); // seconds until the window resets (0 if already past)
+$limit->resetsAt();           // same value as a DateTimeImmutable instance
+```
+
+`rateLimit()` returns `null` before any request has been made in the current container lifecycle, and also when the headers are absent from a response (e.g. on error responses).
 
 ---
 
